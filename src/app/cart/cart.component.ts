@@ -1,11 +1,12 @@
-import { Component, Input, OnInit,EventEmitter, Output } from '@angular/core';
+import { Component, Input, OnInit,EventEmitter, Output, OnChanges } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnChanges {
   componentName = 'Cart';
   btnDisabled = true;
   item='';
@@ -15,13 +16,24 @@ export class CartComponent implements OnInit {
   @Output() cartEvent = new EventEmitter()
 
 
-  constructor() {
+  constructor( private dService: DataService) {
+    console.log(this.constructor.name)
+
     setTimeout(()=>{
       this.btnDisabled = false;
     },2000)
+
+    this.cart = this.dService.cart; //reference binding
    }
 
   ngOnInit(): void {
+    console.log('ngOnInit')
+  }
+  ngOnChanges(): void {
+    console.log('ngOnChanges')
+  }
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy')
   }
   // getItem(e:any){
   //   this.item= e.target.value;
