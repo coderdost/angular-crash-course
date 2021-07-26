@@ -1,4 +1,5 @@
 import { Component, Input, OnInit,EventEmitter, Output, OnChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class CartComponent implements OnInit, OnChanges {
   @Output() cartEvent = new EventEmitter()
 
 
-  constructor( private dService: DataService) {
+  constructor( private dService: DataService, private router: Router) {
     console.log(this.constructor.name)
 
     setTimeout(()=>{
@@ -40,6 +41,10 @@ export class CartComponent implements OnInit, OnChanges {
   //   this.item= e.target.value;
   //   console.log(e.target.value);
   // }
+
+  gotoProduct(item:string){
+    this.router.navigate(['product',item])
+  }
 
   addToCart(){
    this.cart.push({name:this.item, time:new Date()});

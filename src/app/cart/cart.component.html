@@ -16,7 +16,9 @@
         *ngFor="let it of cart; let i=index"
         [ngStyle]="{'background':i%2 ? bg:''}"
         [ngClass]="{'list-group-item-danger':!(i%2)}"
-        routerLink="/product/{{it.name}}">
+        (click)="gotoProduct(it.name)">
+        <!-- routerLink="/product/{{it.name}}"> -->
+
            {{i+1}}. {{it.name | shorten: 4 | uppercase}} ({{it.time | date : 'dd/MMM'}})
         </li>
     </ul>
