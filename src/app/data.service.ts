@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
   cart = [];
+  name='dummyName';
   constructor() {
     console.log(this.constructor.name)
    }

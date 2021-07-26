@@ -24,16 +24,17 @@ export class CartComponent implements OnInit, OnChanges {
     },2000)
 
     this.cart = this.dService.cart; //reference binding
+    this.customer = this.dService.name
    }
 
   ngOnInit(): void {
-    console.log('ngOnInit')
+    console.log(this.constructor.name,'ngOnInit')
   }
   ngOnChanges(): void {
-    console.log('ngOnChanges')
+    console.log(this.constructor.name,'ngOnChanges')
   }
   ngOnDestroy(): void {
-    console.log('ngOnDestroy')
+    console.log(this.constructor.name,'ngOnDestroy')
   }
   // getItem(e:any){
   //   this.item= e.target.value;
