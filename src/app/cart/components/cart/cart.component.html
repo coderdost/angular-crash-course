@@ -19,7 +19,7 @@
         (click)="gotoProduct(it.name)">
         <!-- routerLink="/product/{{it.name}}"> -->
 
-           {{i+1}}. {{it.name | shorten: 4 | uppercase}} ({{it.time | date : 'dd/MMM'}})
+           {{i+1}}. {{it.name | shorten:3 | uppercase}} ({{it.time | date : 'dd/MMM'}})
         </li>
     </ul>
     <ng-template #alert>
